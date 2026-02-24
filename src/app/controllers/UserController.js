@@ -6,29 +6,38 @@
     delete -> remover dados
 */
 
-import { v4 } from "uuid";
-import User from "../models/user.js";
-
-
+import { v4 } from 'uuid';
+import User from '../models/user.js';
 
 class UserController {
 	async store(request, response) {
-		const {name, email, password_hash, admin} = request.body
+		const { name, email, password_hash, admin } = request.body;
+
+		const existingUser = await User.findOne({
+			where: {
+				email
+			}
+		});
+
+		if (existingUser) {
+			return response
+				.status(400)
+				.json({ message: 'Este email já está cadastrado!' });
+		}
 
 		const user = await User.create({
 			id: v4(),
 			name,
 			email,
 			password_hash,
-			admin
+			admin,
 		});
-
 
 		return response.status(201).json({
 			id: user.id,
 			name: user.name,
 			email: user.email,
-			admin: user.admin
+			admin: user.admin,
 		});
 	}
 }
