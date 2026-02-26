@@ -2,7 +2,7 @@ import Sequelize, { Model } from 'sequelize';
 
 class product extends Model {
 	static init(sequelize) {
-		Model.init(
+		super.init(
 			{
 				name: Sequelize.STRING,
 				price: Sequelize.INTEGER,
