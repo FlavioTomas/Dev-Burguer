@@ -19,5 +19,9 @@ routes.use(authMiddleware)
 routes.post('/products', upload.single('file'), ProductController.store)
 routes.get('/products', ProductController.index)
 
+routes.post('/categories', ProductController.store)
+routes.get('/categories', ProductController.index)
+
+
 
 export default routes
