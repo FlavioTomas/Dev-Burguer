@@ -11,6 +11,8 @@ class category extends Model {
 				tableName: 'categories',
 			},
 		);
+
+		return this
 	}
 }
 
