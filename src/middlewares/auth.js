@@ -6,7 +6,7 @@ const authMiddleware = (request, response, next) => {
 
     const authToken = request.headers.authorization
 
-    if (!authToken){
+    if (!authToken) {
         return response.status(401).json({ error: 'Token not provided' })
     }
 
@@ -14,13 +14,14 @@ const authMiddleware = (request, response, next) => {
 
     try {
         jwt.verify(token, authConfig.secret, (error, decoded) => {
-            
+
             if (error) {
                 throw Error()
             }
 
             request.userId = decoded.id
-        } )
+            request.userIsAdmin = decoded.admin
+        })
     } catch (_error) {
         return response.status(401).json({ error: 'Token is invalid' })
     }
