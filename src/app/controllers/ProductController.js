@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
-import Product from '../models/product.js'
 import category from '../models/category.js';
+import Product from '../models/product.js'
 
 class ProductController {
 	async store(request, response) {
@@ -8,6 +8,7 @@ class ProductController {
 			name: Yup.string().required(),
 			price: Yup.number().required(),
 			category_id: Yup.number().required(),
+			offer: Yup.boolean()
 		});
 
 		try {
@@ -16,7 +17,7 @@ class ProductController {
 			return response.status(400).json({ error: err.errors });
 		}
 
-		const { name, price, category_id } = request.body;
+		const { name, price, category_id, offer } = request.body;
 		const { filename } = request.file;
 
 
@@ -24,7 +25,8 @@ class ProductController {
 			name,
 			price,
 			category_id,
-			path: filename
+			path: filename,
+			offer
 		})
 
 
