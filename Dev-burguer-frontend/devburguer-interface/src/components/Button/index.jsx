@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export function Button({ children, ...props }) {
 
 
-    return  <ContainerButton>{children}</ContainerButton>
+    return  <ContainerButton {...props}>{children}</ContainerButton>
 }
 
 Button.propTypes = {
