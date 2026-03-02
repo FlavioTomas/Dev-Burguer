@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import { toast } from "react-toastify"
 
 
 import { api } from "../../services/api"
@@ -10,11 +11,11 @@ import { Button } from '../../components/Button'
 export function Login() {
 
     const schema = yup
-    .object({
-        email: yup.string().email('Digite um email válido.').required('O email é obrigatório.'),
-        password: yup.string().min(6, 'A senha deve conter pelo menos 6 caracteres').required('A senha é obrigatória'),
-    })
-    .required()
+        .object({
+            email: yup.string().email('Digite um email válido.').required('O email é obrigatório.'),
+            password: yup.string().min(6, 'A senha deve conter pelo menos 6 caracteres').required('A senha é obrigatória'),
+        })
+        .required()
 
 
     const {
@@ -24,11 +25,19 @@ export function Login() {
     } = useForm({
         resolver: yupResolver(schema),
     })
+
+
     const onSubmit = async (data) => {
-        const response = await api.post('/session', {
+        const response = await toast.promise(api.post('/session', {
             email: data.email,
             password: data.password
-        })
+        }), {
+            pending: 'Verificando seus dados',
+            success: 'Seja Bem-vindo(a)',
+            error: 'Email ou Senha Incorretos 🤯'
+        }
+        )
+
 
         console.log(response)
     }
