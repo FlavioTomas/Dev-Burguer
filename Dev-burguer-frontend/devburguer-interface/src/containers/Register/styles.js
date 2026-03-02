@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import BgLogin from "../../assets/bg-login-1.svg"
 import Bg from '../../assets/bg.svg'
+import { Link as ReactLink } from "react-router-dom";
 
 
 export const Container = styled.div`
@@ -94,4 +95,8 @@ export const InputContainer = styled.div`
         font-weight: 600;
         height: 10px;
     }
+`
+
+export const Link = styled(ReactLink)`
+    color: #fff;
 `
