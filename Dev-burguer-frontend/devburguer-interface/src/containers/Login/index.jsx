@@ -30,7 +30,7 @@ export function Login() {
 
 
     const onSubmit = async (data) => {
-        await toast.promise(api.post('/sessions', {
+        const { data: { token } } = await toast.promise(api.post('/sessions', {
             email: data.email,
             password: data.password
         }), {
@@ -55,7 +55,8 @@ export function Login() {
             }
         }
         )
-
+        
+        localStorage.setItem('token', token)
     }
 
 
