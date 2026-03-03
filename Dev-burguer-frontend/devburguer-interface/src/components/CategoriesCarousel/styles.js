@@ -8,6 +8,15 @@ export const Container = styled.div`
 
     padding-left: 50px;
     padding-bottom: 40px;
+
+    .react-multiple-carousel__arrow--left{
+        left: 15px;
+        top: 10px;
+    }
+
+    .react-multiple-carousel__arrow--right{
+        top: 10px;
+    }
 `
 
 export const Title = styled.h2`
@@ -40,7 +49,7 @@ export const ContainerItens = styled.div`
     display: flex;
     align-items: center;
     padding: 20px 10px;
-    width: 90%;
+    width: 100%;
     height: 250px;
     border-radius: 20px;
 
