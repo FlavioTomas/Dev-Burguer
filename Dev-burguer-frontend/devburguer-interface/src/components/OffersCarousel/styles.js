@@ -7,6 +7,11 @@ export const Container = styled.div`
     }
 
     padding-left: 50px;
+    overflow-x: hidden;
+
+    .react-multi-carousel-list {
+        overflow: visible;
+    }
 `
 
 export const Title = styled.h2`
@@ -31,26 +36,3 @@ export const Title = styled.h2`
     }
 `
 
-export const ContainerItens = styled.div`
-    background: url('${props => props.imageurl}'), no-repeat;
-    background-position: center;
-    background-size: cover;
-
-    display: flex;
-    align-items: center;
-    padding: 20px 10px;
-    width: 80%;
-    height: 250px;
-    border-radius: 20px;
-
-
-    p {
-        color: #fff;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 10px 30px;
-        border-radius: 30px;
-        font-size: 22.5;
-        font-weight: bold;
-        margin-top: 30%;
-    }
-`

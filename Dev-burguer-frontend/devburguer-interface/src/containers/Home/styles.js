@@ -24,12 +24,8 @@ export const Container = styled.section`
     background: linear-gradient(
         rgba(255,255,255, 0.2),
         rgba(255,255,255, 0.2)
-    ), url('${Background}');
+    ), url('${Background}'), no-repeat;
     background-size: contain;
     height: 100%;
 `
 
-
-export const Content = styled.div`
-    padding-bottom: 70px;
-`

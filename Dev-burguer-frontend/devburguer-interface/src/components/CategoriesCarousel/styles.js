@@ -7,6 +7,7 @@ export const Container = styled.div`
     }
 
     padding-left: 50px;
+    padding-bottom: 40px;
 `
 
 export const Title = styled.h2`
@@ -39,7 +40,7 @@ export const ContainerItens = styled.div`
     display: flex;
     align-items: center;
     padding: 20px 10px;
-    width: 80%;
+    width: 90%;
     height: 250px;
     border-radius: 20px;
 
