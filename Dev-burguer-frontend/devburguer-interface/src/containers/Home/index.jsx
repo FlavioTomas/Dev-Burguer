@@ -17,7 +17,6 @@ export function Home() {
             <Container>
                 <Content>
                     <CategoriesCarousel></CategoriesCarousel>
-                    <CategoriesCarousel></CategoriesCarousel>
                 </Content>
             </Container>
         </main>
