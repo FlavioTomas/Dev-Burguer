@@ -12,6 +12,7 @@ export const Container = styled.div`
     cursor: grab;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-bottom: 40px;
+    position: relative;
 
 
     div {
